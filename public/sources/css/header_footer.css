@@ -1,0 +1,336 @@
+:root {
+    --z-max: 1000;
+    --z-plano: 1;
+    --z-atras: -10;
+    --z-frente: 10;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+    width: 3px;
+    /* Tamaño del scroll en vertical */
+    /* height: 8px;    Tamaño del scroll en horizontal */
+    /* display: none;  Ocultar scroll */
+    background: rgba(0, 0, 0, 0.9);
+    /* background-image: linear-gradient(rgb(255, 251, 0), blue); */
+}
+
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+
+*::-webkit-scrollbar-thumb {
+    background: rgb(255, 0, 0);
+    border-radius: 15px;
+}
+
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input {
+    outline: none;
+}
+
+nav {
+    height: 100px;
+    width: 100vw;
+    background-image: linear-gradient(to bottom, black, darkred, red);
+    display: flex;
+    justify-content: center;
+    box-shadow: 1px 1px 15px black;
+}
+
+.img img {
+    height: 100%;
+}
+
+nav>* {
+    width: 33%;
+}
+
+.title,
+.menu {
+    justify-self: flex-end;
+    align-self: flex-end;
+    margin: 0;
+}
+
+.title h3 {
+    font-size: 4em;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: white;
+}
+
+input#menu,
+.menu>label {
+    display: none;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    text-align: right;
+    display: inline-block;
+    width: 49%;
+}
+
+.menu a {
+    font-size: 1.8em;
+    color: rgb(189, 189, 189);
+    text-decoration: none;
+    transition: .3s;
+}
+
+.menu a:hover {
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 15px white;
+}
+
+.menu .select {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+}
+
+.menu .home {
+    display: none;
+}
+
+footer {
+    background-image: linear-gradient(to top, black, #191b1d);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    width: 100vw;
+}
+
+.logo_footer {
+    width: 20%;
+    align-self: flex-end;
+    padding-bottom: 10px;
+}
+
+.logo_footer img {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.logo_footer p {
+    color: white;
+    text-shadow: 1px 1px 15px black;
+    text-align: center;
+}
+
+.contact ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50px;
+}
+
+.contact li {
+    display: block;
+    list-style: none;
+    color: white;
+    text-shadow: 1px 1px 15px black;
+}
+
+.contact a {
+    color: white;
+}
+
+.title_footer {
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 15px black;
+    font-size: 1.5em;
+    height: 1.7em;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid red;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    color: gray;
+    font-weight: bold;
+    display: inline;
+}
+
+.contact p {
+    color: white;
+    display: inline;
+}
+
+.follow ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.follow li {
+    list-style: none;
+}
+
+.follow img {
+    width: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        /* border: 1px solid rgb(121, 250, 0); */
+    }
+    .img {
+        order: 2;
+    }
+    .img img {
+        margin: 0 auto;
+        /* height: 100% ; */
+        width: 50%;
+        display: block;
+    }
+    nav>* {
+        /* border: 1px solid orange; */
+        width: 100%;
+        height: 60%;
+    }
+    .title {
+        order: 3;
+    }
+    .title,
+    .menu {
+        justify-self: center;
+        align-self: center;
+        margin: 0;
+    }
+    .title h3 {
+        font-size: 2.2em;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+        color: rgb(255, 255, 255);
+    }
+    /* input#menu{
+       display: none;
+   } */
+    .menu {
+        padding: 5px 5px 0 0;
+        order: 1;
+        width: 100%;
+        text-align: right;
+        /* border: 1px solid green; */
+    }
+    .menu>label {
+        /* border: 1px solid green; */
+        /* display: none; */
+        display: inline-block;
+        color: white;
+        font-size: 3em;
+        cursor: pointer;
+        /* transition: ease-in-out .5s; */
+    }
+    input#menu:checked~label {
+        color: transparent;
+        background-color: rgba(0, 0, 0, 0.575);
+        width: 100%;
+    }
+    input#menu:checked~label::after {
+        content: "X";
+        color: white;
+        background-color: rgba(139, 0, 0, 0.562);
+        font-weight: bold;
+        padding: 5px;
+        /* border-bottom:1px solid white; */
+    }
+    input#menu:checked~ul {
+        display: block;
+    }
+    .menu ul {
+        overflow: hidden;
+        display: none;
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        margin: 0;
+        padding: 50px 0;
+    }
+    .menu li {
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+    .menu a {
+        font-size: 3em;
+        color: rgb(182, 182, 182);
+        text-decoration: none;
+        transition: .3s;
+    }
+    .menu a:hover {
+        color: rgb(255, 255, 255);
+    }
+    .menu .select {
+        text-shadow: 1px 1px 15px white;
+        color: rgb(255, 255, 255);
+        text-decoration: underline;
+    }
+    .menu .home {
+        display: inline-block;
+    }
+    footer {
+        background-image: linear-gradient(black, rgb(48, 48, 48));
+        flex-direction: column-reverse;
+        height: 700px;
+    }
+    .follow,
+    .contact,
+    .logo_footer {
+        width: 100%;
+        text-align: center;
+    }
+    .follow ul {
+        margin-bottom: 50px;
+    }
+    .title_footer {
+        font-size: 1.8em;
+    }
+    .contact {
+        font-size: 1.8em;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .follow,
+    .contact,
+    .logo_footer {
+        width: 100%;
+        text-align: center;
+    }
+    .follow ul {
+        margin-bottom: 50px;
+    }
+    .title_footer {
+        font-size: 1.5em;
+    }
+    .contact {
+        font-size: 1.5em;
+        margin-bottom: 50px;
+    }
+}
